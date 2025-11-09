@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/09 18:20:25 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/09 18:16:48 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/09 18:17:15 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-
-int	ft_strlen(char *s);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
-int	ft_strcmp(char *s1, char *s2);
-
-#endif
+int	ft_toupper(int c)
+{
+	return (c - 32);
+}

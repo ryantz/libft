@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/09 18:20:25 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/09 18:10:23 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/09 18:12:10 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
+int	ft_strlen(char *s)
+{
+	int	len;
 
-int	ft_strlen(char *s);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
-int	ft_strcmp(char *s1, char *s2);
-
-#endif
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
