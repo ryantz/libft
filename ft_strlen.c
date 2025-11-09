@@ -6,18 +6,18 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 18:10:23 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/09 18:12:10 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/09 22:58:07 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
-	while (s[len])
+	while (s[len] != '\0')
 		len++;
 	return (len);
 }

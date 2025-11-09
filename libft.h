@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/09 18:20:25 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/09 22:57:54 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <string.h>
 
-int	ft_strlen(char *s);
+size_t	ft_strlen(const char *s);
 int	ft_tolower(int c);
 int	ft_toupper(int c);
 int	ft_strcmp(char *s1, char *s2);
