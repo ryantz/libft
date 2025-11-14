@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 21:18:57 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/14 21:26:48 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/14 21:28:41 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_isalpha(int c)
 	return (0);
 }
 
+/*
 int	main(void)
 {
 	int	i, j;
@@ -38,3 +39,4 @@ int	main(void)
 		j++;
 	}	
 }
+*/
