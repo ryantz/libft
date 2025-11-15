@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/15 09:41:22 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/15 10:05:29 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdio.h> // remove
 # include <ctype.h> // remove
 
+void	ft_bzero(void *s, size_t n);
+
 size_t	ft_strlen(const char *s);
 int	ft_strcmp(char *s1, char *s2);
 
@@ -32,5 +34,7 @@ int	ft_isalnum(int c);
 
 int	ft_tolower(int c);
 int	ft_toupper(int c);
+
+int	ft_atoi(const char *nptr);
 
 #endif
