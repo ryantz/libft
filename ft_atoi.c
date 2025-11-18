@@ -6,13 +6,13 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 22:36:15 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/12 22:00:20 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/18 12:22:10 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(const char *nptr)
+static int	ft_isspace(const char *nptr)
 {
 	int	offset;
 
@@ -23,7 +23,7 @@ int	ft_isspace(const char *nptr)
 	return (offset);
 }
 
-int	ft_ten_power(int val, int times)
+static int	ft_ten_power(int val, int times)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	ft_ten_power(int val, int times)
 	return (val);
 }
 
-int	ft_strlen_only_numbers(const char *nptr)
+static int	ft_strlen_only_numbers(const char *nptr)
 {
 	int	len;
 
