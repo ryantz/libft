@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:24:02 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/16 13:20:41 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/18 12:24:44 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*temp_arr;
+	char		temp_arr[1024];
 	char		*c_dest;
 	const char	*c_src;
 	size_t		i;
 
 	c_dest = (char *)dest;
 	c_src = (const char *)src;
-	temp_arr = malloc(sizeof(char) * n);
 	i = 0;
 	while (i < n)
 	{
@@ -32,7 +31,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		*c_dest++ = temp_arr[i++];
 	}
-	free(temp_arr);
 	return (dest);
 }
 
