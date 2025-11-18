@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 18:10:23 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/09 22:58:07 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/18 12:23:07 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,10 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+
+//int	main (void)
+//{
+//	char *s = "abcdef";
+//	printf("%ld\n", ft_strlen(s));
+//	return (0);
+//}
