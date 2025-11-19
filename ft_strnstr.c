@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 19:38:01 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/19 20:13:35 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/19 21:35:22 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			dp_little++;
 		}
 		if (*dp_little == '\0')
-			return ((char *)(dp_big - ft_strlen(little)));
+			return ((char *)(dp_big - ft_strlen(little) + 1));
 		big++;
 		i++;
 	}
@@ -43,8 +43,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 //int	main(void)
 //{
 //	const char *big = "hello there human";
-//	const char *small = "there";
-//	printf("%s\n", strnstr(big, small, 3));
-//	printf("%s\n", ft_strnstr(big, small, 3));
+//	const char *small = "the";
+//	printf("%s\n", strnstr(big, small, 9));
+//	printf("%s\n", ft_strnstr(big, small, 9));
 //	return (0);
 //}
