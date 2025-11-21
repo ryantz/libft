@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:04:46 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 15:36:19 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/21 15:38:54 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	p_substr = malloc(sizeof(char) * len + 1);
+	if (!p_substr)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
