@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 15:52:13 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 19:39:29 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/21 19:43:17 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[end] && ft_trim_seg(s1[end], set))
 		end--;
 	p_trim = malloc(end - start + 1);
+	if (!p_trim)
+		return (NULL);
 	i = 0;
 	while (start <= end)
 	{
