@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 14:04:46 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 15:38:54 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/21 15:42:15 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 		start++;
 	}
+	p_substr[i] = '\0';
 	return (p_substr);
 }
 
