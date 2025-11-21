@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 13:15:04 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/21 15:37:02 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
@@ -44,5 +45,10 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 int		ft_atoi(const char *nptr);
+
+void	*calloc(size_t nmemb, size_t size);
+
+//	bonus
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
