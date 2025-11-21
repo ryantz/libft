@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/20 23:21:07 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/21 13:15:04 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <bsd/string.h>
+# include <bsd/string.h> // remove
 # include <stdio.h> // remove
 
 void	ft_bzero(void *s, size_t n);

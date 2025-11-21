@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 21:56:11 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 15:18:23 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/21 14:04:46 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/21 14:05:24 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t nmemb, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ret;
-	char	*empty;
+}
 
-	if (nmemb == 0 || size == 0)
-	{
-		empty = malloc(1);
-		empty[0] = '\0';
-		return (empty);
-	}
-	if ((nmemb * size) > 2147483647)
-		return (NULL);
-	ret = malloc(nmemb * size);
-	ft_bzero(ret, size);
-	return (ret);
+int	main(void)
+{
+	return (0);
 }

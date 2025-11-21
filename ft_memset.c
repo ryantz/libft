@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 13:49:59 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/16 14:12:44 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/21 14:59:07 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*c_s;
+	unsigned char	*c_s;
 	size_t	i;
 
-	c_s = (char *)s;
+	c_s = (unsigned char *)s;
 	i = 0;
 	while (i++ < n)
 	{
@@ -28,8 +28,14 @@ void	*ft_memset(void *s, int c, size_t n)
 
 //int	main(void)
 //{
-//	char	str[100] = "hello there";
-//	ft_memset(str + 5, '.', 10);
-//	printf("%s\n", str);
+//	//char	str[100] = "hello there";
+//	int	strint[10] ;
+//	ft_memset(strint, 1 , 10*sizeof(int));
+//	int	i = 0;
+//	while (i < 10)
+//	{
+//		printf("%d, ", strint[i]);
+//		i++;
+//	}
 //	return (0);
 //}
