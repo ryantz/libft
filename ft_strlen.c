@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 18:10:23 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/19 21:25:26 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/22 11:10:13 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlen(const char *s)
 	len = 0;
 	while (s[len] != '\0')
 		len++;
-	return (len + 1);
+	return (len);
 }
 
 //int	main (void)

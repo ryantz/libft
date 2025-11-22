@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:30:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 20:18:26 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/22 20:16:32 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <bsd/string.h> // remove
+# include <ctype.h> // remove
 # include <stdio.h> // remove
+# include <limits.h> // remove
 
+// Part 1
 void	ft_bzero(void *s, size_t n);
 
 int		ft_isdigit(int c);
@@ -48,10 +51,28 @@ int		ft_atoi(const char *nptr);
 
 void	*calloc(size_t nmemb, size_t size);
 
-//	bonus
+// Part 2
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+//void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+//void	ft_putchar_fd(char c, int fd);
+//void	ft_putstr_fd(char *s, int fd);
+//void	ft_putnbr_fd(int n, int fd);
+//
+//// BONUS
+//typedef struct	s_list
+//{
+//	void			*content;
+//	struct s_list	*next;
+//}				t_list;
+//
+//int		ft_lstsize(t_list *lst);
+//void	ft_lstadd_front(t_list **lst, t_list *new);
+//void	ft_lstadd_back(t_list **lst, t_list *new);
+//t_list	*ft_lstnew(void *content);
+//t_list	*ft_lstlast(t_list *lst);
 
 #endif

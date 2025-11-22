@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 19:24:00 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 12:06:48 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/22 13:31:09 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/22 14:37:13 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*head;
 
-	i = 0;
-	while (i <= ft_strlen(s) + 1)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	return (NULL);
+	head = malloc(sizeof(t_list));
+	if (!head)
+		return (NULL);
+	head->content = content;
+	head->next = NULL;
+	return (head);
 }
 
 //int	main(void)
 //{
-//	const char *s = "hello there";
-//	int	c = 't';
-//	printf("ft_strchr: %s\n", ft_strchr(s, c));
-//	printf("strchr: %s\n", strchr(s, c));
+//	t_list *head;
+//	char *hello;
+//
+//	hello = "hellol";
+//	head = ft_lstnew(hello);
+//	printf("%s\n", (char *)head->content);
+//	return (0);
 //}

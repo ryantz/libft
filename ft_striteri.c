@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 19:24:00 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 12:06:48 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/22 12:39:52 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/22 13:12:50 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
+	size_t	s_len;
 	size_t	i;
 
+	s_len = ft_strlen(s);
 	i = 0;
-	while (i <= ft_strlen(s) + 1)
+	while (i < s_len)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
+		f(i, s);
 		i++;
 	}
-	return (NULL);
+	return (s);
 }
 
-//int	main(void)
-//{
-//	const char *s = "hello there";
-//	int	c = 't';
-//	printf("ft_strchr: %s\n", ft_strchr(s, c));
-//	printf("strchr: %s\n", strchr(s, c));
-//}
+// int	main(void)
+// {
+// 	return (0);
+// }

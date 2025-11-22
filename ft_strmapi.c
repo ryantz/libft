@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 19:24:00 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 12:06:48 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/21 20:19:46 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/22 12:33:13 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*ret;
+	size_t	s_len;
 	size_t	i;
 
+	s_len = ft_strlen(s);
+	ret = malloc(sizeof(char) * s_len + 1);
 	i = 0;
-	while (i <= ft_strlen(s) + 1)
+	while (i < s_len)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
+		ret[i] = f(i, s[i]);
 		i++;
 	}
-	return (NULL);
+	ret[s_len] = '\0';
+	return (ret);
 }
 
 //int	main(void)
 //{
-//	const char *s = "hello there";
-//	int	c = 't';
-//	printf("ft_strchr: %s\n", ft_strchr(s, c));
-//	printf("strchr: %s\n", strchr(s, c));
+//	char	*strmapi;
+//	strmapi = ft_strmapi("abcdef", ft_test_fn);
+//	printf("%s\n", strmapi);
+//	return (0);
 //}

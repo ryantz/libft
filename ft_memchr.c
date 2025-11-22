@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 22:40:30 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/20 22:50:06 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/22 20:14:21 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
-	char	*dp_s;
+	unsigned char	*dp_s;
 
-	dp_s = (char *)s;
+	dp_s = (unsigned char *)s;
 	i = 0;
 	while (dp_s[i] && i < n)
 	{

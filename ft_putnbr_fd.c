@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 19:24:00 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 12:06:48 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/22 13:22:24 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/22 13:26:33 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (i <= ft_strlen(s) + 1)
+	long	ln;
+	char	cn;
+	
+	ln = n;
+	if (ln < 0)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i++;
+		write(fd, "-", 1);
+		ln *= -1;
 	}
-	return (NULL);
+	if (ln >= 0 && ln <= 9)
+	{
+		cn = ln + '0';
+		write(fd, &cn, 1);
+	}
+	else
+	{
+		ft_putnbr_fd(ln / 10, fd);
+		ft_putnbr_fd(ln % 10, fd);
+	}
 }
-
-//int	main(void)
-//{
-//	const char *s = "hello there";
-//	int	c = 't';
-//	printf("ft_strchr: %s\n", ft_strchr(s, c));
-//	printf("strchr: %s\n", strchr(s, c));
-//}
