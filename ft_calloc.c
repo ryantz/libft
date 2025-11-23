@@ -6,26 +6,59 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 21:56:11 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 15:18:23 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/23 16:56:00 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*ret;
-	char	*empty;
 
 	if (nmemb == 0 || size == 0)
 	{
-		empty = malloc(1);
-		empty[0] = '\0';
-		return (empty);
+		ret = malloc(1);
+		if (ret)
+			ret[0] = '\0';
+		return (ret);
 	}
 	if ((nmemb * size) > 2147483647)
 		return (NULL);
 	ret = malloc(nmemb * size);
-	ft_bzero(ret, size);
+	ft_bzero(ret, nmemb * size);
 	return (ret);
 }
+
+//int main(void)
+//{
+//    // Use malloc (calloc) and ft_calloc for testing
+//    char *test1 = calloc(3, sizeof(char));  // Standard calloc
+//    char *test2 = ft_calloc(3, sizeof(char));  // Custom ft_calloc
+//
+//    // Check if allocation was successful
+//    if (!test1 || !test2)
+//    {
+//        printf("Memory allocation failed!\n");
+//        return 1;
+//    }
+//
+//    // Print values allocated by calloc (test1) and ft_calloc (test2)
+//    printf("Testing calloc (test1):\n");
+//    for (size_t i = 0; i < 3; i++)
+//    {
+//        printf("test1[%zu]: %d\n", i, test1[i]);  // Should be 0
+//    }
+//
+//    printf("Testing ft_calloc (test2):\n");
+//    for (size_t i = 0; i < 3; i++)
+//    {
+//        printf("test2[%zu]: %d\n", i, test2[i]);  // Should be 0
+//    }
+//
+//    // Free the allocated memory
+//    free(test1);
+//    free(test2);
+//
+//    return 0;
+//}

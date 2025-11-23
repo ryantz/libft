@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 15:52:13 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 19:43:17 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/23 16:45:31 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 //int	main(void)
 //{
 //	char const *set = "$ .";
-//	char const *s1 = " ...  $. hello... $  $";
+//	char const *s1 = " ...  $.... $  $";
 //	char	*trimmed;
 //	trimmed = ft_strtrim(s1, set);
 //	printf("trimmed string:%s\n", trimmed);

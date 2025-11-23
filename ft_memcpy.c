@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:48:49 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 20:42:56 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/23 16:21:35 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	if ((c_dest < c_src + n) && (c_src < c_dest + n))
 	{
-		printf("OVERLAP\n");
 		return (ft_memmove(dest, src, n));
 	}
 	while (i < n)
