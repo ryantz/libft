@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 15:52:13 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/24 16:49:05 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 20:15:43 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	if (!s1 || !set)
 		return (NULL);
-	if (set[0] == '\0')
+	if (s1[0] == '\0' || set[0] == '\0')
 		return (ft_strdup(s1));
 	while (s1[start] && ft_trim_seg(s1[start], set))
 		start++;

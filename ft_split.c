@@ -3,114 +3,106 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
+/*   By: ryatan <ryatan@student.42singapore.sg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/23 23:07:44 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/23 23:56:30 by ryatan           ###   ########.fr       */
+/*   Created: 2025/11/24 22:07:53 by ryatan            #+#    #+#             */
+/*   Updated: 2025/11/24 22:08:13 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_trim_front(char const *s, char c)
+int	ft_count_words(char	const *s, char c)
 {
-	int	offset;
-
-	offset = 0;
-	while (s[offset])
-	{
-		if (s[offset] != c)
-			break ;
-		offset++;
-	}
-	return (offset);
-}
-
-static int	ft_inner_malloc_size(char const *s, char c)
-{
-	int	i;
 	int	count;
+	int	word_flag;
+	int	i;
 
+	count = 0;
+	word_flag = 0;
 	i = 0;
-	s += ft_trim_front(s, c);
-	count = 1;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c)
-			count++;
+		if (s[i] == c)
+			word_flag = 0;
+		else
+		{
+			if (word_flag == 0)
+			{
+				count++;
+				word_flag = 1;
+			}
+		}
 		i++;
 	}
-	if (s[i - 1] == c)
-		count--;
 	return (count);
 }
 
-static void	ft_free_all(char **outer, char const *s, char c)
+char	*ft_allocate_inner(char const *s, char c, int *start, int *end)
 {
-	int	i;
+	int		i;
+	char	*inner_string;
 
-	i = ft_inner_malloc_size(s, c);
-	while (i--)
-		free(outer[i]);
-	free(outer);
+	i = 0;
+	while (s[*start] && s[*start] == c)
+		(*start)++;
+	*end = *start;
+	while (s[*end] && s[*end] != c)
+		(*end)++;
+	inner_string = malloc(sizeof(char) * (*end - *start + 1));
+	if (!inner_string)
+		return (NULL);
+	while (*start < *end)
+		inner_string[i++] = s[(*start)++];
+	inner_string[i] = '\0';
+	return (inner_string);
 }
 
-static char	*ft_malloc_inner(char const *s, int start, int end)
+void	ft_free_all(int inner_len, char **arr)
 {
-	char	*split;
-	int		i;
-
-	split = malloc(sizeof(char) * (end - start + 1));
-	if (!split)
-		return (NULL);
-	i = 0;
-	while (start < end)
-		split[i++] = s[start++];
-	split[i] = '\0';
-	return (split);
+	while (inner_len--)
+		free(arr[inner_len]);
+	free(arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**outer;
+	char	**arr;
+	int		inner_len;
+	int		i;
 	int		start;
 	int		end;
-	int		i;
 
 	start = 0;
 	end = 0;
-	i = 0;
-	s += ft_trim_front(s, c);
-	outer = malloc(sizeof(char *) * (ft_inner_malloc_size(s, c) + 1));
-	if (!outer)
+	inner_len = ft_count_words(s, c);
+	arr = malloc(sizeof(char *) * (inner_len + 1));
+	if (!arr)
 		return (NULL);
-	while (i < ft_inner_malloc_size(s, c))
+	i = 0;
+	while (i < inner_len)
 	{
-		while (s[end] && s[end] != c)
-			end++;
-		outer[i] = ft_malloc_inner(s, start, end);
-		if (!outer[i])
-			return (ft_free_all(outer, s, c), NULL);
-		while (s[end] && s[end] == c)
-			end++;
-		start = end;
+		arr[i] = ft_allocate_inner(s, c, &start, &end);
+		if (!arr[i])
+			return (ft_free_all(inner_len - 1, arr), NULL);
 		i++;
 	}
-	return (outer[i] = NULL, outer);
+	arr[inner_len] = NULL;
+	return (arr);
 }
 
 //int	main(void)
 //{
+//	char	*s = "";
+//	char	c = ',';
 //	char	**arr;
-//	char const *s = ",ok,,,,,,hello,,,,there,,you,,are,,a,fool,,,,,,,";
-//	char c = ',';
+//	int		i = 0;
+//
 //	arr = ft_split(s, c);
-//	int	i = 0;
-//	while (i < ft_inner_malloc_size(s, c))
+//	while (i < ft_count_words(s, c))
 //	{
 //		printf("%s\n", arr[i]);
 //		i++;
 //	}
-//	ft_free_all(arr, s, c);
-//	return (0);
+//	ft_free_all(ft_count_words(s, c), arr);
 //}

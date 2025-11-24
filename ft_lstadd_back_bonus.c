@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryatan <ryatan@student.42singapore.sg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:56:55 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 17:03:41 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 22:23:04 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*dummy;
+	t_list	*last;
 
-	dummy = *lst;
-	if (*lst == NULL)
+	if (lst != NULL)
 	{
-		*lst = new;
-		new->next = NULL;
+		if (*lst == NULL)
+			*lst = new;
+		else
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
 	}
-	dummy = ft_lstlast(*lst);
-	dummy->next = new;
-	new->next = NULL;
 }
 
 //int	main(void)

@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:48:49 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/24 16:26:44 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 22:40:43 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char		*c_dest;
-	const unsigned char	*c_src;
-	size_t				i;
+	unsigned char *c_dest;
+	unsigned char *c_src;
+	size_t			i;
 
 	c_dest = (unsigned char *)dest;
-	c_src = (unsigned const char *)src;
+	c_src = (unsigned char *)src;
 	i = 0;
-	if ((c_dest < c_src + n) && (c_src < c_dest + n))
-	{
-		return (ft_memmove(dest, src, n));
-	}
 	while (i < n)
 	{
-		*c_dest++ = *c_src++;
+		c_dest[i] = c_src[i];
 		i++;
 	}
 	return (dest);
