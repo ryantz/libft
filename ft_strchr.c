@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 19:24:00 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 12:06:48 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:28:27 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	unsigned char	d_c;
 
-	i = 0;
-	while (i <= ft_strlen(s) + 1)
+	d_c = (unsigned char)c;
+	while (*s)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i++;
+		if (*s == d_c)
+			return ((char *)s);
+		s++;
 	}
+	if (d_c == '\0')
+		return ((char *)s);
 	return (NULL);
 }
 
 //int	main(void)
 //{
-//	const char *s = "hello there";
-//	int	c = 't';
-//	printf("ft_strchr: %s\n", ft_strchr(s, c));
-//	printf("strchr: %s\n", strchr(s, c));
+//	const char *s = "abcd";
+//	int	c = '\0';
+//	printf("ft_strchr:%s\n", ft_strchr(s, c));
+//	printf("strchr:%s\n", strchr(s, c));
 //}

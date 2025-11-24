@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 20:16:22 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/19 21:33:13 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 10:09:12 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
-	while (i < size)
+	if (size > 0)
 	{
-		dst[i] = src[i];
-		i++;
+		while (src[i] && i < size - 1)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	return (ft_strlen(src) - 1);
+	return (ft_strlen(src));
 }
 
 //int	main(void)

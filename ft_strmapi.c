@@ -6,13 +6,11 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:19:46 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 12:33:13 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:26:52 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

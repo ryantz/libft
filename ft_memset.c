@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 13:49:59 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 14:59:07 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:31:02 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*c_s;
-	size_t	i;
+	size_t			i;
 
 	c_s = (unsigned char *)s;
 	i = 0;

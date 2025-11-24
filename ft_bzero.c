@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 09:38:01 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/23 14:54:48 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:28:59 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*cast;
 
 	cast = (unsigned char *) s;
-
 	i = 0;
 	while (i < n)
 	{

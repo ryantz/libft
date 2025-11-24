@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 19:38:01 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/19 21:35:22 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:27:32 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,19 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t		i;
-	const char	*dp_big;
-	const char	*dp_little;
+	size_t		j;
 
 	if (*little == '\0')
 		return ((char *)big);
 	i = 0;
-	while (i < len && *big != '\0')
+	while (i < len && big[i])
 	{
-		dp_big = big;
-		dp_little = little;
-		while ((*dp_big != '\0') && (*dp_little != '\0')
-			&& (*dp_big == *dp_little))
-		{
-			printf("inz\n");
-			dp_big++;
-			dp_little++;
-		}
-		if (*dp_little == '\0')
-			return ((char *)(dp_big - ft_strlen(little) + 1));
-		big++;
+		j = 0;
+		while (little[j] && big[i + j] && (i + j) < len
+			&& big[i + j] == little[j])
+			j++;
+		if (little[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (NULL);

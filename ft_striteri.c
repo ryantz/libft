@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 12:39:52 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 13:12:50 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 11:42:43 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (i < s_len)
 	{
-		f(i, s);
+		f(i, &s[i]);
 		i++;
 	}
-	return (s);
 }
 
 // int	main(void)

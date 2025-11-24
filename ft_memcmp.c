@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 22:52:54 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 11:04:08 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 09:36:31 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*dp_s1;
-	unsigned char	*dp_s2;
-	size_t	i;
+	const unsigned char	*dp_s2;
+	size_t				i;
 
 	dp_s1 = (const unsigned char *)s1;
-	dp_s2 = (unsigned char *)s2;
+	dp_s2 = (const unsigned char *)s2;
 	i = 0;
-	if (dp_s2[i] == '\0')
-		return (dp_s1[i]);
-	while (dp_s1[i] && dp_s2[i] && i < n)
+	while (i < n)
 	{
 		if (dp_s1[i] != dp_s2[i])
 			return (dp_s1[i] - dp_s2[i]);

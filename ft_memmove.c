@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:24:02 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/22 11:06:14 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:27:17 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		temp_arr[1024];
 	unsigned char		*c_dest;
 	const unsigned char	*c_src;
-	size_t		i;
+	size_t				i;
 
 	c_dest = (unsigned char *)dest;
 	c_src = (const unsigned char *)src;

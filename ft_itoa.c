@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 19:58:34 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/21 20:17:48 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:09:09 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_count_len_of_int(int n)
 	int	count;
 
 	count = 0;
+	if (n >= 0 && n <= 9)
+		return (1);
 	while (n != 0)
 	{
 		n /= 10;
@@ -25,32 +27,47 @@ static int	ft_count_len_of_int(int n)
 	return (count);
 }
 
+static int	ft_check_neg(long *ln)
+{
+	if (*ln < 0)
+	{
+		*ln *= -1;
+		return (1);
+	}
+	return (0);
+}
+
 char	*ft_itoa(int n)
 {
-	int		in_len;
+	int		neg;
+	int		int_len;
 	int		i;
-	char	*stringify;
-	char	rem;
+	char	*to_string;
+	long	ln;
 
-	in_len = ft_count_len_of_int(n);
-	stringify = malloc(sizeof(char) * in_len + 1);
-	if (!stringify)
+	ln = n;
+	neg = ft_check_neg(&ln);
+	int_len = ft_count_len_of_int(ln);
+	to_string = malloc(sizeof(char) * int_len + 1 + neg);
+	if (!to_string)
 		return (NULL);
-	i = in_len - 1;
-	while (n != 0)
+	i = int_len - 1 + neg;
+	if (ln == 0)
+		to_string[i] = 0 + '0';
+	while (ln != 0)
 	{
-		rem = (n % 10) + '0';
-		stringify[i] = rem;
-		n /= 10;
-		i--;
+		to_string[i--] = (ln % 10) + '0';
+		ln /= 10;
 	}
-	stringify[in_len] = '\0';
-	return (stringify);
+	if (neg)
+		to_string[0] = '-';
+	to_string[int_len + neg] = '\0';
+	return (to_string);
 }
 
 //int	main(void)
 //{
-//	int	n = 1001123;
+//	int	n = -1001;
 //	char	*string;
 //	string = ft_itoa(n);
 //	printf("%s\n", string);

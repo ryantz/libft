@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:48:49 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/23 16:21:35 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:26:44 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char		*c_dest;
 	const unsigned char	*c_src;
-	size_t		i;
+	size_t				i;
 
 	c_dest = (unsigned char *)dest;
 	c_src = (unsigned const char *)src;

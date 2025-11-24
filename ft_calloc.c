@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 21:56:11 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/23 16:56:00 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 10:30:06 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 			ret[0] = '\0';
 		return (ret);
 	}
-	if ((nmemb * size) > 2147483647)
+	if (size != 0 && nmemb > (size_t)(-1) / size)
 		return (NULL);
 	ret = malloc(nmemb * size);
+	if (!ret)
+		return (NULL);
 	ft_bzero(ret, nmemb * size);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 15:52:13 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/23 16:45:31 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/24 16:49:05 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,23 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 
 	start = 0;
+	if (!s1 || !set)
+		return (NULL);
+	if (set[0] == '\0')
+		return (ft_strdup(s1));
 	while (s1[start] && ft_trim_seg(s1[start], set))
 		start++;
-	end = ft_strlen(s1) - 2;
-	while (s1[end] && ft_trim_seg(s1[end], set))
+	end = ft_strlen(s1);
+	if (end > 0)
 		end--;
-	p_trim = malloc(end - start + 1);
+	while (end > start && ft_trim_seg(s1[end], set))
+		end--;
+	p_trim = malloc(sizeof(char) * ((end - start + 1) + 1));
 	if (!p_trim)
 		return (NULL);
 	i = 0;
 	while (start <= end)
-	{
-		p_trim[i] = s1[start];
-		start++;
-		i++;
-	}
+		p_trim[i++] = s1[start++];
 	p_trim[i] = '\0';
 	return (p_trim);
 }
