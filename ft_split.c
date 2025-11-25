@@ -6,13 +6,13 @@
 /*   By: ryatan <ryatan@student.42singapore.sg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:07:53 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/24 22:08:13 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/25 17:50:56 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words(char	const *s, char c)
+static int	ft_count_words(char	const *s, char c)
 {
 	int	count;
 	int	word_flag;
@@ -38,7 +38,7 @@ int	ft_count_words(char	const *s, char c)
 	return (count);
 }
 
-char	*ft_allocate_inner(char const *s, char c, int *start, int *end)
+static char	*ft_allocate_inner(char const *s, char c, int *start, int *end)
 {
 	int		i;
 	char	*inner_string;
@@ -58,7 +58,7 @@ char	*ft_allocate_inner(char const *s, char c, int *start, int *end)
 	return (inner_string);
 }
 
-void	ft_free_all(int inner_len, char **arr)
+static void	ft_free_all(int inner_len, char **arr)
 {
 	while (inner_len--)
 		free(arr[inner_len]);

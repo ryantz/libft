@@ -6,7 +6,7 @@
 /*   By: ryatan <ryatan@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:29:35 by ryatan            #+#    #+#             */
-/*   Updated: 2025/11/24 16:29:36 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/11/25 20:36:03 by ryatan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 //void	del(void *content)
 //{
 //	if (content)
+//	{
+//		printf("freeing content\n");
 //		free(content);
+//	}
 //}
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
@@ -26,31 +29,42 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	free(lst);
 }
 
-//int	main(void)
+//int main(void)
 //{
-//	t_list	*lst;
-//	t_list	*another;
-//	t_list	*first;
-//	t_list	*last;
-//	//t_list	*test;
+//    t_list *node;
 //
-//	lst = ft_lstnew("stranger");
-//	another = ft_lstnew("there");
-//	first = ft_lstnew("hello");
-//	last = ft_lstnew("!!!");
+//    // Allocate node
+//    node = malloc(sizeof(t_list));
+//    if (!node)
+//        return (1);
 //
-//	ft_lstadd_front(&lst, another);
-//	ft_lstadd_front(&lst, first);
-//	printf("list size:%d\n", ft_lstsize(lst));
-//	ft_lstadd_back(&lst, last);
-//	ft_lstdelone(lst, del);
+//    // Allocate and assign content
+//    node->content = malloc(6);
+//    if (!node->content)
+//    {
+//        free(node);
+//        return (1);
+//    }
 //
-//	printf("list size:%d\n", ft_lstsize(lst));
-//	
-//	while (lst != NULL)
-//	{
-//		printf("%s->", (char *)lst->content);
-//		lst = lst->next;
-//	}
-//	return (0);
+//    // Manually write content (no snprintf)
+//    char *str = (char *)node->content;
+//    str[0] = 'H';
+//    str[1] = 'e';
+//    str[2] = 'l';
+//    str[3] = 'l';
+//    str[4] = 'o';
+//    str[5] = '\0';
+//
+//    node->next = NULL;
+//
+//    printf("Before deletion:\n");
+//    printf("node->content = %s\n", (char *)node->content);
+//
+//    // Test ft_lstdelone
+//    ft_lstdelone(node, del);
+//
+//    printf("After deletion: %s\n", (char *)node->content);
+//    printf("Node should be freed and del() should have been called.\n");
+//
+//    return (0);
 //}
