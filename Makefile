@@ -6,7 +6,7 @@
 #    By: ryatan <ryatan@student.42singapore.sg      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/22 19:58:04 by ryatan            #+#    #+#              #
-#    Updated: 2025/11/24 09:12:15 by ryatan           ###   ########.fr        #
+#    Updated: 2025/11/27 10:24:19 by ryatan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,11 @@ SOURCE_FILES_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 					 ft_lstclear_bonus.c ft_lstiter_bonus.c \
 					 ft_lstmap_bonus.c
 
+# for testing
+TEST_FILE = test.c
+TEST_EXE = test
+TEST_OUTPUT_FILE = test_res.txt
+
 OBJECT_FILES = $(SOURCE_FILES:%.c=%.o)
 OBJECT_FILES_BONUS = $(SOURCE_FILES_BONUS:%.c=%.o)
 
@@ -44,13 +49,18 @@ OBJECT_FILES_BONUS = $(SOURCE_FILES_BONUS:%.c=%.o)
 $(NAME): $(OBJECT_FILES)
 	$(ARCHIVE) $(ARCHIVE_FLAGS) $(NAME) $(OBJECT_FILES)
 
+# for testing
+test: bonus $(TEST_FILE)
+	$(COMPILER) $(CFLAGS) $(TEST_FILE) $(OBJECT_FILES) $(OBJECT_FILES_BONUS) -o $(TEST_EXE)
+	./$(TEST_EXE) > $(TEST_OUTPUT_FILE)
+
 all: $(NAME)
 
 bonus : $(OBJECT_FILES_BONUS) $(OBJECT_FILES)
 	$(ARCHIVE) $(ARCHIVE_FLAGS) $(NAME) $(OBJECT_FILES_BONUS)
 
 clean:
-	rm -rf $(OBJECT_FILES) $(OBJECT_FILES_BONUS)
+	rm -rf $(OBJECT_FILES) $(OBJECT_FILES_BONUS) $(TEST_OUTPUT_FILE) $(TEST_EXE)
 
 fclean: clean
 	rm -rf $(NAME)
