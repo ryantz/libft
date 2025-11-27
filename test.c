@@ -2,11 +2,38 @@
 
 void	ft_del(void *content)
 {
-	if (content)
-	{
-		printf("freeing content!\n");
-		free(content);
-	}
+	(void)content;
+}
+
+void ft_capitalize_content(void *content)
+{
+    if (!content)
+        return;
+
+    char *str = (char *)content;
+    size_t i = 0;
+
+    while (str[i])
+    {
+        str[i] = ft_toupper(str[i]);
+        i++;
+    }
+}
+
+void *ft_uncapitalize_content(void *content)
+{
+    if (!content)
+        return (NULL);
+
+    char *str = (char *)content;
+    size_t i = 0;
+
+    while (str[i])
+    {
+        str[i] = ft_tolower(str[i]);
+        i++;
+    }
+	return (str);
 }
 
 void	ft_print_ll(t_list *head)
@@ -598,9 +625,9 @@ int	main (void)
 	t_list	*lstaddfront_new1;
 	t_list	*lstaddfront_new2;
 	t_list	*lstaddfront_head;
-	char	*lstaddfront_content_new1 = "hello";
-	char	*lstaddfront_existing = "there";
-	char	*lstaddfront_content_new2 = "hey!";
+	char	*lstaddfront_content_new1 = ft_strdup("hello");
+	char	*lstaddfront_existing = ft_strdup("there");
+	char	*lstaddfront_content_new2 = ft_strdup("hey!");
 
 	lstaddfront_head = ft_lstnew(lstaddfront_existing);
 	lstaddfront_new1 = ft_lstnew(lstaddfront_content_new1);
@@ -633,8 +660,8 @@ int	main (void)
 
 	t_list	*lstaddback_new1;
 	t_list	*lstaddback_new2;
-	char	*lstaddback_content_new1 = "stranger";
-	char	*lstaddback_content_new2 = "danger";
+	char	*lstaddback_content_new1 = ft_strdup("stranger");
+	char	*lstaddback_content_new2 = ft_strdup("danger");
 
 	lstaddback_new1 = ft_lstnew(lstaddback_content_new1);
 	lstaddback_new2 = ft_lstnew(lstaddback_content_new2);
@@ -648,6 +675,26 @@ int	main (void)
 	ft_lstadd_back(&lstaddfront_head, lstaddback_new2);
 	ft_print_ll(lstaddfront_head);
 
+	printf("\n==Test for ft_lstiter==\n\n");
+
+	printf("original linked list:\n\n");
+	ft_print_ll(lstaddfront_head);
+	printf("\n");
+	ft_lstiter(lstaddfront_head, ft_capitalize_content);
+	printf("after applying capitalizing function:\n\n");
+	ft_print_ll(lstaddfront_head);
+	
+	printf("\n==Test for ft_lstmap==\n\n");
+
+	t_list	*lstmap_newlst_head;
+
+	printf("original linked list:\n\n");
+	ft_print_ll(lstaddfront_head);
+	printf("\n");
+	lstmap_newlst_head = ft_lstmap(lstaddfront_head, ft_uncapitalize_content, ft_del);
+	printf("after adding uncapitalizing function\n\n");
+	ft_print_ll(lstmap_newlst_head);
+
 	printf("\n==Test for ft_lstdelone==\n\n");
 
 	printf("erm...\n");
@@ -655,11 +702,10 @@ int	main (void)
 	printf("\n==Test for ft_lstclear==\n\n");
 
 	ft_print_ll(lstaddfront_head);
-	printf("start node to remove: %s\n", (char *)lstaddfront_head->content);
-	//ft_lstclear(&lstaddfront_head, ft_del);
-	ft_lstadd_back(&lstaddfront_head, lstaddback_new1);
-	ft_print_ll(lstaddfront_head);
-
-	printf("\n==Test for ft_lstiter==\n\n");
-	printf("\n==Test for ft_lstmap==\n\n");
+	printf("\nstart node to remove: %s\n\n", (char *)lstaddfront_head->content);
+	ft_lstclear(&lstaddfront_head, ft_del);
+	if (lstaddfront_head == NULL)
+		printf("whole list has been cleared\n");
+	else
+		printf("list has not been cleared\n");
 }
