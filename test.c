@@ -1,7 +1,38 @@
 #include "libft.h"
 
+void	ft_del(void *content)
+{
+	if (content)
+	{
+		printf("freeing content!\n");
+		free(content);
+	}
+}
+
+void	ft_print_ll(t_list *head)
+{
+	while (head)
+	{
+		printf("%s->", (char *)head->content);
+		head = head->next;
+	}
+	printf("\n");
+}
+
+char	ft_plus_index(unsigned int i, char c)
+{
+	return (c + i);
+}
+
+void	ft_to_upper(unsigned int i, char *s)
+{
+	(void)i;
+	*s = ft_toupper(*s);
+}
+
 int	main (void)
 {
+	printf("\n===============LIBFT PART 1===============\n");
 	printf("\n==Test for ft_isalpha==\n\n");
 	
 	char	isalphain1 = 'a';
@@ -246,7 +277,8 @@ int	main (void)
 	char	c_find2 = 'z';
 
 	printf("string to perform ft_strchr on: %s\n", strchr_in1);
-	printf("res of finding char %c: %s\n", c_find1, ft_strchr(strchr_in1, c_find1));
+	printf("res of finding char %c: %s\n", c_find1, 
+			ft_strchr(strchr_in1, c_find1));
 	printf("res of not finding char %c: %s\n"
 			, c_find2, ft_strchr(strchr_in1, c_find2));
 
@@ -288,8 +320,346 @@ int	main (void)
 			,ft_strncmp(strncmp_s1, strncmp_s4, strncmp_n));
 	
 	printf("\n==Test for ft_memchr==\n\n");
+
+	const char	*memchr_s1 = "hello there stranger";
+	const char	*memchr_s2 = "";
+	int		memchr_c1 = 'e';
+	int		memchr_c2 = 'z';
+	size_t	memchr_n = 20;
+
+	printf("string: %s\nchar to match: %c\nlength: %ld\nreturn: %s\n\n"
+			, memchr_s1, memchr_c1, memchr_n,
+			(char *)ft_memchr(memchr_s1, memchr_c1, memchr_n));
+	printf("string: %s\nchar to match: %c\nlength: %ld\nreturn: %s\n\n"
+			, memchr_s1, memchr_c2, memchr_n, 
+			(char *)ft_memchr(memchr_s1, memchr_c2, memchr_n));
+	printf("string: %s\nchar to match: %c\nlength: %ld\nreturn: %s\n"
+			, memchr_s2, memchr_c1, memchr_n, 
+			(char *)ft_memchr(memchr_s2, memchr_c2, memchr_n));
+
 	printf("\n==Test for ft_memcmp==\n\n");
+
+	const unsigned char memcmp_s1[12] = "hello there";
+	const unsigned char memcmp_s2[12] = "helli there";
+	const unsigned char memcmp_s3[12] = "hello there";
+	const unsigned char memcmp_s4[12] = "";
+	size_t memcmp_n = 10;
+
+	printf("s1: %s\ns2: %s\nn: %ld\nres: %d\n", memcmp_s1, memcmp_s2, memcmp_n,
+			ft_memcmp(memcmp_s1, memcmp_s2, memcmp_n));
+	printf("diff in ascii: %d\n\n", 'o' - 'i');
+	printf("s1: %s\ns2: %s\nn: %ld\nres: %d\n", memcmp_s1, memcmp_s3, memcmp_n,
+			ft_memcmp(memcmp_s1, memcmp_s3, memcmp_n));
+	printf("diff in ascii: %d\n\n", 'o' - 'o');
+	printf("s1: %s\ns2: %s\nn: %ld\nres: %d\n", memcmp_s1, memcmp_s4, memcmp_n,
+			ft_memcmp(memcmp_s1, memcmp_s4, memcmp_n));
+	printf("diff in ascii: %d\n\n", 'h' - '\0');
+
 	printf("\n==Test for ft_strnstr==\n\n");
-	printf("\n==Test for ft_memchr==\n\n");
- 
+
+	const char *big = "hello there stranger";
+	const char *little1 = "there";
+	const char *little2 = "ere";
+	const char *little3 = "e";
+	const char *nomatch = "zel";
+	size_t len = 20;
+	
+	printf("original string: %s\n", big);
+	printf("pattern: %s\n", little1);
+	printf("after matching: %s\n\n", ft_strnstr(big, little1, len));
+
+	printf("original string: %s\n", big);
+	printf("substr: %s\n", little2);
+	printf("after matching: %s\n\n", ft_strnstr(big, little2, len));
+
+	printf("original string: %s\n", big);
+	printf("substr: %s\n", little3);
+	printf("after matching: %s\n\n", ft_strnstr(big, little3, len));
+
+	printf("original string: %s\n", big);
+	printf("substr: %s\n", nomatch);
+	printf("no match: %s\n", ft_strnstr(big, nomatch, len));
+
+	printf("\n==Test for ft_atoi==\n\n");
+
+	const char *nptr1 = "-1234";
+	const char *nptr2 = "1234";
+	const char *nptr3 = "0";
+	const char *nptr4 = "abcd";
+	const char *nptr5 = "-2147483648";
+	const char *nptr6 = "2147483647";
+	const char *nptr7 = "";
+
+	printf("input string to convert: %s\n", nptr1);
+	printf("integer: %d\n", ft_atoi(nptr1));
+
+	printf("input string to convert: %s\n", nptr2);
+	printf("integer: %d\n", ft_atoi(nptr2));
+
+	printf("input string to convert: %s\n", nptr3);
+	printf("integer: %d\n", ft_atoi(nptr3));
+
+	printf("input string to convert: %s\n", nptr4);
+	printf("integer: %d\n", ft_atoi(nptr4));
+
+	printf("input string to convert: %s\n", nptr5);
+	printf("integer: %d\n", ft_atoi(nptr5));
+
+	printf("input string to convert: %s\n", nptr6);
+	printf("integer: %d\n", ft_atoi(nptr6));
+
+	printf("input string to convert: %s\n", nptr7);
+	printf("integer: %d\n", ft_atoi(nptr7));
+
+	printf("\n==Test for ft_calloc==\n\n");
+
+    char *calloc_test1 = calloc(3, sizeof(char));
+    char *calloc_test2 = ft_calloc(3, sizeof(char));
+    //char *calloc_test3 = ft_calloc(3, (size_t)(-1));
+
+    if (!calloc_test1 || !calloc_test2)
+    {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    printf("Testing calloc (calloc_test1):\n");
+    for (size_t i = 0; i < 3; i++)
+    {
+        printf("calloc_test1[%zu]: %d\n", i, calloc_test1[i]);  // Should be 0
+    }
+
+    printf("Testing ft_calloc (calloc_test2):\n");
+    for (size_t i = 0; i < 3; i++)
+    {
+        printf("calloc_test2[%zu]: %d\n", i, calloc_test2[i]);  // Should be 0
+    }
+
+    free(calloc_test1);
+    free(calloc_test2);
+	 
+	printf("\n==Test for ft_strdup==\n\n");
+
+	char	*strdup_s1 = "hello there stranger";
+	char	*strdup_s2 = "hello there stranger";
+	char	*strdup_s3;
+	char	*strdup_s4;
+	strdup_s3 = strdup(strdup_s1);
+	strdup_s4 = ft_strdup(strdup_s2);
+	printf("using strdup: %s\n", strdup_s3);
+	printf("using ft_strdup: %s\n", strdup_s4);
+	free(strdup_s3);
+	free(strdup_s4);
+
+	printf("\n===============LIBFT PART 2===============\n");
+	printf("\n==Test for ft_substr==\n\n");
+
+	char const	*substr_s = "hello there stranger";
+	char	*substr_sub1;
+	unsigned int substr_start1 = 6;
+	size_t substr_len1 = 12;
+
+	char	*substr_sub2;
+	unsigned int substr_start2 = 20;
+	size_t substr_len2 = 12;
+	
+	char	*substr_sub3;
+	unsigned int substr_start3 = 6;
+	size_t substr_len3 = 200;
+
+	char	*substr_sub4;
+	unsigned int substr_start4 = 6;
+	size_t substr_len4 = 0;
+
+	char const	*substr_s2 = "";
+	char	*substr_sub5;
+	unsigned int substr_start5 = 6;
+	size_t substr_len5 = 12;
+
+	printf("original string: %s\n", substr_s);
+	printf("start idx: %d\n", substr_start1);
+	printf("len: %ld\n", substr_len1);
+	substr_sub1 = ft_substr(substr_s, substr_start1, substr_len1);
+	printf("substring generated: %s\n\n", substr_sub1);
+
+	printf("original string: %s\n", substr_s);
+	printf("start idx: %d\n", substr_start2);
+	printf("len: %ld\n", substr_len2);
+	substr_sub2 = ft_substr(substr_s, substr_start2, substr_len2);
+	printf("substring generated: %s\n\n", substr_sub2);
+	
+	printf("original string: %s\n", substr_s);
+	printf("start idx: %d\n", substr_start3);
+	printf("len: %ld\n", substr_len3);
+	substr_sub3 = ft_substr(substr_s, substr_start3, substr_len3);
+	printf("substring generated: %s\n\n", substr_sub3);
+
+	printf("original string: %s\n", substr_s);
+	printf("start idx: %d\n", substr_start4);
+	printf("len: %ld\n", substr_len4);
+	substr_sub4 = ft_substr(substr_s, substr_start4, substr_len4);
+	printf("substring generated: %s\n\n", substr_sub4);
+	
+	printf("original string: %s\n", substr_s2);
+	printf("start idx: %d\n", substr_start5);
+	printf("len: %ld\n", substr_len5);
+	substr_sub5 = ft_substr(substr_s2, substr_start5, substr_len5);
+	printf("substring generated: %s\n", substr_sub5);
+
+	printf("\n==Test for ft_strjoin==\n\n");
+
+	char const *strjoin_s1 = "hello";
+	char const *strjoin_s2 = "";
+	char const *strjoin_s3 = " there stranger";
+	char	*strjoin_res1;
+	char	*strjoin_res2;
+	char	*strjoin_res3;
+	
+	strjoin_res1 = ft_strjoin(strjoin_s1, strjoin_s3);
+	strjoin_res2 = ft_strjoin(strjoin_s2, strjoin_s3);
+	strjoin_res3 = ft_strjoin(strjoin_s1, strjoin_s2);
+
+	printf("s1: %s\ns2: %s\n", strjoin_s1, strjoin_s3);
+	printf("joined str: %s\n\n", strjoin_res1);
+	printf("s1: %s\ns2: %s\n", strjoin_s2, strjoin_s3);
+	printf("joined str: %s\n\n", strjoin_res2);
+	printf("s1: %s\ns2: %s\n", strjoin_s1, strjoin_s2);
+	printf("joined str: %s\n", strjoin_res3);
+
+	printf("\n==Test for ft_strtrim==\n\n");
+
+	char const *set = "$ .";
+	char const *strtrim_s1 = "$.... ..$hello$.. .$";
+	char const *strtrim_s2 = "$.... ..$$.. .$";
+	char		*trimmed1;
+	char		*trimmed2;
+	
+	trimmed1 = ft_strtrim(strtrim_s1, set);
+	printf("original string: %s\nset: %s\ntrimmed: %s\n\n",
+			strtrim_s1, set, trimmed1);
+	trimmed2 = ft_strtrim(strtrim_s2, set);
+	printf("original string: %s\nset: %s\ntrimmed: %s\n\n",
+			strtrim_s2, set, trimmed2);
+
+	printf("\n==Test for ft_split==\n\n");
+
+	char *split_s = "hello,there,stranger";
+	char c = ',';
+	char **arr1;
+	int	idx = 0;
+
+	arr1 = ft_split(split_s, c);
+	while (idx++ < 3)
+		printf("word %d: %s\n", idx + 1, arr1[idx]);
+	free(arr1);
+
+	printf("\n==Test for ft_itoa==\n\n");
+
+	int	itoa_n1 = -1001;
+	int	itoa_n2 = 1001;
+	int	itoa_n3 = 0;
+	int	itoa_n4 = 'c';
+
+	printf("original: %d\nafter itoa: %s\n", itoa_n1, ft_itoa(itoa_n1));
+	printf("original: %d\nafter itoa: %s\n", itoa_n2, ft_itoa(itoa_n2));
+	printf("original: %d\nafter itoa: %s\n", itoa_n3, ft_itoa(itoa_n3));
+	printf("original: %d\nafter itoa: %s\n", itoa_n4, ft_itoa(itoa_n4));
+
+	printf("\n==Test for ft_strmapi==\n\n");
+	
+	char const *s = "abcdef";
+	char	*strmapi_s1;
+
+	strmapi_s1 = ft_strmapi(s, ft_plus_index);
+	printf("original string: %s\nmapped string: %s\n", s, strmapi_s1); 
+
+	printf("\n==Test for ft_striteri==\n\n");
+
+	char striteri_s[21] = "hello there stranger";
+
+	printf("original: %s\n", striteri_s);
+	ft_striteri(striteri_s, ft_to_upper);
+	printf("after striteri: %s\n", striteri_s);
+
+	printf("\n===============LIBFT BONUS===============\n");
+	printf("\n==Test for ft_lstnew==\n\n");
+
+	t_list	*lstnew_head;
+	char	*lstnew_content = "hello";
+	
+	printf("Using ft_lstnew..\n");
+	lstnew_head = ft_lstnew(lstnew_content);
+	if (lstnew_head)
+		printf("node created!\n");
+	printf("lst content: %s\n", (char *)lstnew_head->content);
+
+	printf("\n==Test for ft_lstadd_front==\n\n");
+
+	t_list	*lstaddfront_new1;
+	t_list	*lstaddfront_new2;
+	t_list	*lstaddfront_head;
+	char	*lstaddfront_content_new1 = "hello";
+	char	*lstaddfront_existing = "there";
+	char	*lstaddfront_content_new2 = "hey!";
+
+	lstaddfront_head = ft_lstnew(lstaddfront_existing);
+	lstaddfront_new1 = ft_lstnew(lstaddfront_content_new1);
+	lstaddfront_new2 = ft_lstnew(lstaddfront_content_new2);
+	ft_print_ll(lstaddfront_head);
+	printf("\nadding %s to the linked list..\n\n",
+			(char *)lstaddfront_new1->content);
+	ft_lstadd_front(&lstaddfront_head, lstaddfront_new1);
+	ft_print_ll(lstaddfront_head);
+	printf("\nadding %s to the linked list..\n\n",
+			(char *)lstaddfront_new2->content);
+	ft_lstadd_front(&lstaddfront_head, lstaddfront_new2);
+	ft_print_ll(lstaddfront_head);
+	
+	printf("\n==Test for ft_lstsize==\n\n");
+
+	ft_print_ll(lstaddfront_head);
+	printf("\nsize of the linked list: %d\n", ft_lstsize(lstaddfront_head));
+
+	printf("\n==Test for ft_lstlast==\n\n");
+
+	t_list	*lstlast_lastnode;
+
+	ft_print_ll(lstaddfront_head);
+	lstlast_lastnode = ft_lstlast(lstaddfront_head);
+	printf("\ncontent of the last node of the linkedlist: %s\n",
+			(char *)lstlast_lastnode->content);
+
+	printf("\n==Test for ft_lstadd_back==\n\n");
+
+	t_list	*lstaddback_new1;
+	t_list	*lstaddback_new2;
+	char	*lstaddback_content_new1 = "stranger";
+	char	*lstaddback_content_new2 = "danger";
+
+	lstaddback_new1 = ft_lstnew(lstaddback_content_new1);
+	lstaddback_new2 = ft_lstnew(lstaddback_content_new2);
+	ft_print_ll(lstaddfront_head);
+	printf("\nadding %s to the linked list..\n\n",
+			(char *)lstaddback_new1->content);
+	ft_lstadd_back(&lstaddfront_head, lstaddback_new1);
+	ft_print_ll(lstaddfront_head);
+	printf("\nadding %s to the linked list..\n\n",
+			(char *)lstaddback_new2->content);
+	ft_lstadd_back(&lstaddfront_head, lstaddback_new2);
+	ft_print_ll(lstaddfront_head);
+
+	printf("\n==Test for ft_lstdelone==\n\n");
+
+	printf("erm...\n");
+
+	printf("\n==Test for ft_lstclear==\n\n");
+
+	ft_print_ll(lstaddfront_head);
+	printf("start node to remove: %s\n", (char *)lstaddfront_head->content);
+	//ft_lstclear(&lstaddfront_head, ft_del);
+	ft_lstadd_back(&lstaddfront_head, lstaddback_new1);
+	ft_print_ll(lstaddfront_head);
+
+	printf("\n==Test for ft_lstiter==\n\n");
+	printf("\n==Test for ft_lstmap==\n\n");
 }
